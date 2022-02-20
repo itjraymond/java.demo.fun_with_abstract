@@ -36,6 +36,11 @@ public class Util {
      * If we return a Function<Integer, Integer> then the default method name is `apply`.  Sometimes it is acceptable.
      * But other time we would prefer to re-name this method to something more appropriate, like `orElse`.
      * See the difference with this method and the one above.
+     * Usage:
+     * Integer i = Util.convertDecimalNumberAsStringToInteger("-3.9").apply(0); // -4
+     * Integer i = Util.convertDecimalNumberAsStringToInteger("abc").apply(null) // null
+     * As you can see, a better abstraction for `apply` would be `orElse` hence why it can be advantageous to declare
+     * our own Functional interface as the method above.
      * @param value String
      * @return Function type of (Integer) -> Integer
      */
