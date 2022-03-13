@@ -17,12 +17,12 @@ public class Util {
      * All possible string representing an integer or decimal number value should be rounded to nearest Integer.
      * This method also restrict the conversion to positive Integer (including zero).  Hence: [0..MAX_INTEGER]
      * Usage:
-     * Integer i = Util.convertDecimalNumberAsStringToPositiveInteger("2.7").orElse(null); // 3
-     * Integer i = Util.convertDecimalNumberAsStringToPositiveInteger("abc").orElse(0);    // 0
+     * Integer i = Util.mapToPositiveInteger("2.7").orElse(null); // 3
+     * Integer i = Util.mapToPositiveInteger("abc").orElse(0);    // 0
      * @param value String
      * @return Anonymous Instance of type OrDefault<Integer>
      */
-    public static OrDefault<Integer> convertDecimalNumberAsStringToPositiveInteger(String value) {
+    public static OrDefault<Integer> mapToPositiveInteger(String value) {
         return defaultValue -> {
             if (value == null) return defaultValue;
             try {
@@ -38,14 +38,14 @@ public class Util {
      * But other time we would prefer to re-name this method to something more appropriate, like `orElse`.
      * See the difference with this method and the one above.
      * Usage:
-     * Integer i = Util.convertDecimalNumberAsStringToInteger("-3.9").apply(0); // -4
-     * Integer i = Util.convertDecimalNumberAsStringToInteger("abc").apply(null) // null
+     * Integer i = Util.map("-3.9").apply(0);   // -4
+     * Integer i = Util.map("abc").apply(null)  // null
      * As you can see, a better abstraction for `apply` would be `orElse` hence why it can be advantageous to declare
      * our own Functional interface as the method above.
      * @param value String
      * @return Function type of (Integer) -> Integer
      */
-    public static Function<Integer, Integer> convertDecimalNumberAsStringToInteger(String value) {
+    public static Function<Integer, Integer> map(String value) {
         return defaultValue -> {
             if (value == null) return defaultValue;
             try {

@@ -4,10 +4,10 @@ import spock.lang.Specification
 
 class UtilSpec extends Specification {
 
-    def "test Util.convertDecimalNumberAsStringToPositiveInteger(#strValue).orElse(#defaultValue) == #expectedConversion"() {
+    def "test Util.mapToPositiveInteger(#strValue).orElse(#defaultValue) == #expectedConversion"() {
 
         expect:
-        expectedConversion == Util.convertDecimalNumberAsStringToPositiveInteger(strValue).orElse(defaultValue)
+        expectedConversion == Util.mapToPositiveInteger(strValue).orElse(defaultValue)
 
         where:
 
@@ -24,10 +24,10 @@ class UtilSpec extends Specification {
 
     }
 
-    def "test Util.convertDecimalNumberAsStringToInteger(#strValue).apply(#defaultValue) == #expectedConversion"() {
+    def "test Util.map(#strValue).apply(#defaultValue) == #expectedConversion"() {
 
         expect:
-        expectedConversion == Util.convertDecimalNumberAsStringToInteger(strValue).apply(defaultValue)
+        expectedConversion == Util.map(strValue).apply(defaultValue)
 
         where:
 
