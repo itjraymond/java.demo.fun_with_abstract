@@ -4,7 +4,8 @@ import java.util.function.Function;
 
 public class Util {
 
-    public interface OrDefault<T> {
+    // only available within Util
+    private interface OrDefault<T> {
         public T orElse(T t);
     }
 
